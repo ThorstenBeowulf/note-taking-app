@@ -1,6 +1,5 @@
 const express = require('express')
 const fs = require('fs');
-const tips = require('express').Router();
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
@@ -78,7 +77,7 @@ app.post('/api/notes', (req, res) => {
 
     res.json(response);
   } else {
-    res.json('There was an error trying to post message');
+    res.json('There was an error trying to post note');
   };
 });
 
