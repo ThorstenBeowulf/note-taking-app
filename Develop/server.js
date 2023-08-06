@@ -1,6 +1,6 @@
 const express = require('express')
 const fs = require('fs');
-// const util = require('util');
+const tips = require('express').Router();
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
@@ -30,6 +30,24 @@ app.get('/api/notes', (req, res) => {
   });
 });
 
+app.delete('/api/notes/:id', (req, res) => {
+  console.log(`${req.method} api request received`);
+  const noteId = req.params.id;
+  fs.readFile('db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      const filteredData = parsedData.filter((note) => note.id !== noteId);
+      fs.writeFile('db/db.json', JSON.stringify(filteredData, null, 4), (err) =>
+      err ? console.error(err) : console.info(`Data written to db/db.json`)
+      );
+      res.json(`note id= ${noteId} deleted`);
+    }
+  });
+
+});
+
 app.post('/api/notes', (req, res) => {
   console.log(`${req.method} api request received`);
   const { title, text} = req.body;
@@ -38,7 +56,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4()
+      id: uuidv4()
     };
 
     fs.readFile('db/db.json', 'utf8', (err, data) => {

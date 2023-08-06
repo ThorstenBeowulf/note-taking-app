@@ -1,22 +1,12 @@
 [
     {
-        "title": "NewNote",
-        "text": "Some Text",
-        "note_id": "9e289eee-01f1-42a8-b8a5-43cc981b2827"
-    },
-    {
         "title": "NewNote2",
         "text": "Some Text",
-        "note_id": "5e287d78-b895-42bc-b1d2-9ab073495a18"
-    },
-    {
-        "title": "john doe meeting",
-        "text": "8:30pm Friday 17th",
-        "note_id": "17e3cbb7-070f-4e71-825e-eaadd51107d6"
+        "id": "5e287d78-b895-42bc-b1d2-9ab073495a18"
     },
     {
         "title": "ghgh",
         "text": "gfhfgh",
-        "note_id": "81280c80-c305-4b18-b9aa-68bd1e415bd0"
+        "id": "81280c80-c305-4b18-b9aa-68bd1e415bd0"
     }
 ]
